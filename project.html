@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="site-title"><b>Aarchi Soni</b></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="social-links">
+                    <a href="https://www.linkedin.com/in/aarchi-soni-a7a033298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Aarchi2211" target="_blank">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="resume.pdf" target="_blank">
+                      <i class="fas fa-file-pdf"></i> Resume
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <div class="about-container">
+                <img src="aarchi.jpeg" alt="Aarchi Soni" class="about-image">
+                <div>
+                    <h1>About Me</h1>
+                    <p>
+                        Welcome to my website! I'm Aarchi Soni, a highly motivated and dedicated BCA Student with a passion for Full Stack Web Developer.and tech enthusiast with a passion for coding and innovation. 
+                        Seeking to leverage my skills in full stack web development to drive business growth and digital transformation. 
+                        As a developer, I'm proficient in HTML, CSS, JavaScript, and React, with experience in Node.js and MongoDB. 
+                        I'm always looking to expand my skillset and explore new technologies.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h1>Portfolio</h1>
+            <div class="gallery">
+                <div class="project-card">
+                    <img src="Images/Project 1.png" alt="Project 1">
+                    <h3>Project 1</h3>
+                    <h6>Restful API Design</h6>
+                    <p>This project involves designing and implementing a RESTful API using Flask, a popular Python web framework, to manage a bookstore's inventory. The API will provide endpoints for creating, reading, updating, and deleting (CRUD) books, authors, and genres.</p>
+                </div>
+                <div class="project-card">
+                    <img src="Images/Project 2.png" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <h6>Personal Portfolio Website</h6>
+                    <p>This project involves creating a personal portfolio website using WordPress, a popular content management system (CMS). The website will showcase my skills, experience, and achievements as a [profession/student]. The website will be designed to be visually appealing, easy to navigate, and optimized for search engines.</p>
+                </div>
+                <div class="project-card">
+                    <img src="Images/Project 3.png" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <h6>Attendance Management System</h6>
+                    <p>This project involves designing and developing an attendance management system using Python with a graphical user interface (GUI). The system will allow administrators to manage student attendance, track attendance records, and generate reports.</p>
+                </div>
+            </div>
+        </section>
+        <section id="education">
+            <h1>Education</h1>
+            <ul class="education-list">
+                <li>
+                    <h3>Bachelor of Computer Science</h3>
+                    <p>Punjab College of Technical Education, 2023-2026</p>
+                </li>
+                <li>
+                    <h3>High School</h3>
+                    <p>S.A.N Jain Model Sr. Sec. School, 2008 - 2023</p>
+                </li>
+            </ul>
+        </section>
+        <section id="experience">
+            <h1>Experience</h1>
+            <ul class="experience-list">
+                <li>
+                    <h3>Web Development Intern</h3>
+                    <p>Esenceweb IT, June 2024 - August 2024</p>
+                    <p>Worked on developing responsive web applications using React and Node.js.</p>
+                </li>
+                <li>
+                    <h3>Freelance Web Developer</h3>
+                    <p>January 2025- Present</p>
+                    <p>Designed and developed websites for small businesses and personal projects.</p>
+                </li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h1>Get in Touch</h1>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                
+                <input type="submit" onclick="abc()" value="Send">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>aarchisoni0@gmail.com</p>
+            <div class="footer-social-links">
+                <a href="https://www.linkedin.com/in/aarchi-soni-a7a033298" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Aarchi2211" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="resume.pdf" target="_blank">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Add a class to the body after the page loads to trigger the fade-in animation
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+
+            // Intersection Observer for section animations
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>

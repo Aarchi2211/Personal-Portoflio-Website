@@ -1,0 +1,389 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 0; /* Ensure body content is visible */
+    background: url('aarchisoni.png') no-repeat center center fixed; /* Add background image */
+    background-size: cover; /* Ensure the image covers the entire page */
+}
+
+/* Background overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Slightly darker overlay */
+    z-index: -1;
+}
+
+/* Smooth fade-in animation for the entire page */
+body {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 1s ease, transform 1s ease;
+}
+body.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Section fade-in animation */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navbar layout */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.site-title {
+    flex: 1;
+    text-align: left;
+}
+nav ul {
+    display: flex;
+    flex: 2;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.social-links {
+    flex: 1;
+    text-align: right;
+}
+
+/* Smooth animations for interactive elements */
+button, input[type="submit"], a {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+button:hover, input[type="submit"]:hover, a:hover {
+    transform: scale(1.05);
+}
+
+/* Parallax Effect for Sections */
+section {
+    position: relative;
+    padding: 50px;
+    background: transparent; /* Fully transparent background for sections */
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 1200px;
+    z-index: 2;
+}
+
+.about-container, .gallery, .education-list, .experience-list, form {
+    background: rgba(245, 245, 245, 0.9); /* Opaque background for inner containers */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Standardized container size */
+    margin: 0 auto; /* Center align containers */
+}
+
+/* Header */
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 10px 20px;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent header */
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li.site-title {
+    font-size: 25px;
+    font-family: cursive, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header nav ul li a {
+    color: white; /* Ensure text is white */
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    background: none; /* Remove background under text */
+}
+
+header nav ul li a.active {
+    background: none; /* Remove background under active text */
+    color: white; /* Ensure active text is white */
+}
+
+header nav ul li a:hover {
+    background: none; /* Remove background under hovered text */
+    color: white; /* Ensure hovered text is white */
+}
+
+/* About Section */
+#about {
+    position: relative;
+    padding: 50px;
+    color: white;
+}
+
+.about-container {
+    position: relative;
+    z-index: 1; /* Ensure content is above the background overlay */
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(245, 245, 245, 0.9); /* Slightly off-white background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about-image {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#about h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    color: #000;
+}
+
+#about p {
+    line-height: 1.8;
+    text-align: justify;
+    color: #000;
+}
+
+/* Portfolio Section */
+#portfolio {
+    padding: 50px;
+    background: transparent; /* Fully transparent background for the Portfolio section */
+    color: #000; /* Unified text color */
+    text-align: center;
+}
+
+#portfolio h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    color: #000; /* Unified text color */
+    margin-bottom: 30px;
+    background: rgba(245, 245, 245, 0.9); /* Match gallery background */
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: rgba(245, 245, 245, 0.9); /* Slightly off-white background */
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: #000; /* Unified text color */
+    margin: 15px;
+}
+
+.project-card h6 {
+    font-size: 1.2rem; /* Slightly larger font size */
+    font-weight: bold; /* Make the text bold */
+    color: #555; /* Subtle color for contrast */
+    margin: 10px 15px; /* Add spacing around the text */
+    text-align: left; /* Align text to the left */
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 15px 15px;
+    line-height: 1.6;
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px;
+    background: rgba(245, 245, 245, 0.9); /* Match background with Education section */
+    text-align: center;
+    color: #000; /* Adjust text color for contrast */
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(51, 51, 51, 0.8); /* Match background with Experience cards */
+    color: white; /* Adjust text color for contrast */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    font-size: 1.2rem;
+    color: white; /* Set label text color to white */
+}
+
+form input, form textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9); /* Light background for input fields */
+    color: #000; /* Text color for input fields */
+}
+
+form input[type="submit"] {
+    background-color: white; /* Set button background to white */
+    color: #000; /* Adjust text color for contrast */
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+    background-color: #ddd; /* Slightly darker on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-container p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer-social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social-links a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social-links a:hover {
+    color: #007BFF;
+}
+
+#education {
+    padding: 50px;
+    background: rgba(245, 245, 245, 0.9); /* Match background with Project section */
+    text-align: center;
+    color: #000; /* Adjust text color for contrast */
+}
+
+.education-list, .experience-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.education-list li, .experience-list li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(51, 51, 51, 0.8); /* Match background with Navbar */
+    color: white; /* Set text color to white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.education-list h3, .experience-list h3 {
+    font-size: 1.5rem;
+    color: white; /* Set heading text color to white */
+    margin-bottom: 5px;
+}
+
+.education-list p, .experience-list p {
+    font-size: 1rem;
+    color: white; /* Set paragraph text color to white */
+    margin: 0;
+}
+
+#experience {
+    padding: 50px;
+    background: rgba(245, 245, 245, 0.9); /* Match background with Education section */
+    text-align: center;
+    color: #000; /* Adjust text color for contrast */
+}
+
+#education h1, #experience h1, #contact h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem; /* Match font size with Portfolio heading */
+    color: #333;
+    margin-bottom: 30px;
+}
+
+#portfolio h1, #portfolio .project-card h3, #portfolio .project-card h6 {
+    text-align: center; /* Center-align headings */
+}
