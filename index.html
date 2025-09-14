@@ -22,7 +22,7 @@
                     <a href="https://github.com/Aarchi2211" target="_blank">
                       <i class="fab fa-github"></i>
                     </a>
-                    <a href="resume.pdf" target="_blank">
+                    <a href="Aarchi_Soni.pdf" target="_blank">
                       <i class="fas fa-file-pdf"></i> Resume
                     </a>
                 </li>
@@ -47,23 +47,36 @@
         <section id="portfolio">
             <h1>Portfolio</h1>
             <div class="gallery">
-                <div class="project-card">
+                <div class="project-card" data-title="Restful API Design" data-detail="This project involves designing and implementing a RESTful API using Flask, a popular Python web framework, to manage a bookstore's inventory. The API will provide endpoints for creating, reading, updating, and deleting (CRUD) books, authors, and genres. <br><br><b>Features:</b><ul><li>CRUD operations for books, authors, genres</li><li>Authentication & Authorization</li><li>JSON responses</li><li>Error handling</li></ul>">
                     <img src="Images/Project 1.png" alt="Project 1">
                     <h3>Project 1</h3>
                     <h6>Restful API Design</h6>
                     <p>This project involves designing and implementing a RESTful API using Flask, a popular Python web framework, to manage a bookstore's inventory. The API will provide endpoints for creating, reading, updating, and deleting (CRUD) books, authors, and genres.</p>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-title="Personal Portfolio Website" data-detail="This project involves creating a personal portfolio website using WordPress, a popular content management system (CMS). The website will showcase my skills, experience, and achievements as a student. The website is visually appealing, easy to navigate, and optimized for search engines. <br><br><b>Features:</b><ul><li>Responsive design</li><li>SEO optimization</li><li>Custom themes</li><li>Blog integration</li></ul>">
                     <img src="Images/Project 2.png" alt="Project 2">
                     <h3>Project 2</h3>
                     <h6>Personal Portfolio Website</h6>
                     <p>This project involves creating a personal portfolio website using WordPress, a popular content management system (CMS). The website will showcase my skills, experience, and achievements as a [profession/student]. The website will be designed to be visually appealing, easy to navigate, and optimized for search engines.</p>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-title="Attendance Management System" data-detail="This project involves designing and developing an attendance management system using Python with a graphical user interface (GUI). The system allows administrators to manage student attendance, track attendance records, and generate reports. <br><br><b>Features:</b><ul><li>Student management</li><li>Attendance tracking</li><li>Report generation</li><li>GUI with Tkinter</li></ul>">
                     <img src="Images/Project 3.png" alt="Project 3">
                     <h3>Project 3</h3>
                     <h6>Attendance Management System</h6>
                     <p>This project involves designing and developing an attendance management system using Python with a graphical user interface (GUI). The system will allow administrators to manage student attendance, track attendance records, and generate reports.</p>
+                </div>
+                <div class="project-card" data-title="BusMate" data-detail="This project involves designing and developing an attendance management system using Python with a graphical user interface (GUI). The system allows administrators to manage student attendance, track attendance records, and generate reports. <br><br><b>Features:</b><ul><li>Student management</li><li>Attendance tracking</li><li>Report generation</li><li>GUI with Tkinter</li></ul>">
+                    <img src="Busmate.png" alt="Project 4">
+                    <h3>Project 4</h3>
+                    <h6>BusMate</h6>
+                    <p>BusMate is an innovative transportation management system designed to streamline bus operations, enhance passenger experience, and provide real-time information to stakeholders. The system aims to increase efficiency, reduce costs, and promote sustainable transportation.
+</p>
+                </div>
+                <div class="project-card" data-title="Rangla Punjab" data-detail="This project involves designing and developing an attendance management system using Python with a graphical user interface (GUI). The system allows administrators to manage student attendance, track attendance records, and generate reports. <br><br><b>Features:</b><ul><li>Student management</li><li>Attendance tracking</li><li>Report generation</li><li>GUI with Tkinter</li></ul>">
+                    <img src="Rangla Punjab.png" alt="Project 5">
+                    <h3>Project 5</h3>
+                    <h6>Rangla Punjab</h6>
+                    <p>This project is based on NGO Society named Rangla Punjab. Basically It is Government website ensuring proper functioning of NGO and providing Donations.</p>
                 </div>
             </div>
         </section>
@@ -85,13 +98,13 @@
             <ul class="experience-list">
                 <li>
                     <h3>Web Development Intern</h3>
-                    <p>Esenceweb IT, June 2024 - August 2024</p>
+                    <p>Sensations Software Solutions Mohali Chandigarh, June 2025 - July 2025</p>
                     <p>Worked on developing responsive web applications using React and Node.js.</p>
                 </li>
                 <li>
-                    <h3>Freelance Web Developer</h3>
-                    <p>January 2025- Present</p>
-                    <p>Designed and developed websites for small businesses and personal projects.</p>
+                    <h3>Web Developer Project Intern</h3>
+                    <p>NGO Punjab Government, July 2025- August 2025</p>
+                    <p>Designed and developed website for NGO Punjab Government Rangla Punjab</p>
                 </li>
             </ul>
         </section>
@@ -127,7 +140,14 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <!-- Modal for project details -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-detail"></div>
+        </div>
+    </div>
     <script>
         // Add a class to the body after the page loads to trigger the fade-in animation
         document.addEventListener('DOMContentLoaded', () => {
@@ -145,6 +165,24 @@
 
             sections.forEach(section => observer.observe(section));
         });
+
+        // Read More modal functionality
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.project-card');
+                document.getElementById('modal-title').innerHTML = card.getAttribute('data-title');
+                document.getElementById('modal-detail').innerHTML = card.getAttribute('data-detail');
+                document.getElementById('project-modal').style.display = 'block';
+            });
+        });
+        document.querySelector('.close-modal').onclick = function() {
+            document.getElementById('project-modal').style.display = 'none';
+        };
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('project-modal')) {
+                document.getElementById('project-modal').style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>
